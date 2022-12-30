@@ -29,7 +29,7 @@ def about():
     return render_template('About.html')
 
 @app.route("/getemp/", methods=['GET', 'POST'])
-def about():
+def getemp():
     return render_template('GetEmp.html')
 
 @app.route("/addemp", methods=['POST'])
