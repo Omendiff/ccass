@@ -15,20 +15,16 @@
   margin: 0px 5px;
 }
 
-.navbar{
-  font-size: large;
-  background-color: #e1eedd;
-}
-
 .btn1{
-  border: none;
-  background: none;
-  width: 33.33%;
+  border-radius: 5px;
+  width: 30%;
+  background: #fefbe9;
+  height: 40px;
 }
 
 .btn1:hover{
   cursor: pointer;
-  color: gray;
+  background-color: #e1eedd;
 }
 </style>
 
@@ -39,25 +35,20 @@
   
 </head>
 	<body style="background-color: #fefbe9;">
-  <br><p style="text-align: center; font-size: 2em; color: #183a1d; font-family: 'SaolDisplay', serif;">Add Employee</p>
-  <div class="navbar">
-    <button class="btn1" type="submit" formaction="/addemp">Add Employee</button>
-    <button class="btn1" type="submit" formaction="/about">About Us</button>
-    <button class="btn1" type="submit" formaction="/getemp">Get Employee</button>
-  </div>
+  <p style="text-align: center; font-size: 2em; color: #183a1d; font-family: 'SaolDisplay', serif;">Add Employee</p>
   <div style="background-color: #e1eedd; color: #183a1d; width: 50%; margin: 10px auto; border-radius: 5px;">
     <div style="padding: 20px;">
 			<form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
 
-        <div class="navbar">
-          <button class="btn1" type="submit" formaction="/addemp">Add Employee</button>
-          <button class="btn1" type="submit" formaction="/about">About Us</button>
-          <button class="btn1" type="submit" formaction="/getemp">Get Employee</button>
+        <div style="text-align: center;">
+        <button class="btn1" type="submit" formaction="/about">About Us</button>
+        <button class="btn1" type="submit" formaction="/getemp">Get Employee</button>
         </div>
 
         <!-- <div style="text-align: center;">
           <button type="submit" formaction="/getemp" class="btn btn-dark" style="width: 80%;">GET EMPLOYEE INFORMATION</button><br><br>
         </div> -->
+<br>
 
 				Profile Picture: <input type=file id="img_btn" name="emp_image_file" style="height:25px;font-size:14pt;color:grey;"> <br><br>
 

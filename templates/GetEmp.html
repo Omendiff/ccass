@@ -1,31 +1,22 @@
 <!DOCTYPE html>
 <html>
 <style>
-  .navbar{
-  font-size: large;
-  background-color: #e1eedd;
-}
-
 .btn1{
-  border: none;
-  background: none;
-  width: 33.33%;
+  border-radius: 5px;
+  width: 30%;
+  background: #fefbe9;
+  height: 40px;
 }
 
 .btn1:hover{
   cursor: pointer;
-  color: gray;
+  background-color: #e1eedd;
 }
   </style>
 <head>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<title>Get Employee Information</title>
   <p style="background-color: #fefbe9; color: #183a1d; text-align: center; font-size: 3em; font-family: 'SaolDisplay', san-serif;">EMPLOYEE DATABASE</p>
-  <div class="navbar">
-    <button class="btn1" type="submit" formaction="/addemp">Add Employee</button>
-    <button class="btn1" type="submit" formaction="/about">About Us</button>
-    <button class="btn1" type="submit" formaction="/getemp">Get Employee</button>
-  </div>
 	
 </head>
 <body style="background-color: #fefbe9;">
@@ -35,7 +26,7 @@
 		<div style="padding: 20px; text-align: center;">
 			
 			<form action="/fetchdata" autocomplete="on" method="POST">
-	
+
 				<h3 style="color: #183a1d; font-family: 'SaolDisplay', serif;">Enter Employee ID</h3><br>
 	
 				Employee ID: <input style="width: 50%; padding: 8px; border-radius: 5px; border: 1px solid;" type="number" name="emp_id" autofocus size="40">
