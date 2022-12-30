@@ -3,16 +3,16 @@
 <head>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<title>Employee Information</title>
+	<p style="background-color: #fefbe9; color: #183a1d; text-align: center; font-size: 3em; font-family: 'SaolDisplay', san-serif;">EMPLOYEE DATABASE</p>
 </head>
-<body style="text-align: center;">
-
-		<h1 style="padding-top: 50px;">Employee Information</h1>
+<body style="background-color: #fefbe9;">
+	<p style="text-align: center; font-size: 2em; color: #183a1d; font-family: 'SaolDisplay', serif;">Employee Information</p>
 		<div class="h-100 d-flex align-items-center justify-content-center">
-			<div style="background-color: rgb(193, 193, 193); width: 50%; margin: 50px 5; border-radius: 5px;">
-				<div style="padding:20px">
+			<div style="background-color: #e1eedd; color: #183a1d; width: 50%; margin: 10px auto; border-radius: 5px; font-size: larger;">
+				<div style="padding: 0 50px">
 					<form>
 						<div>
-							<img src=" {{ image_url }} " style="width: 250px; text-align: center; border-radius: 50%;">
+							<img src=" {{ image_url }} " style="width: 250px; text-align: center; border-radius: 50%;"> <br><br>
 
 							Employee ID: {{ result[0] }} <br><br>
 		
@@ -24,7 +24,7 @@
 		
 							Location: {{ result[4] }} <br><br>
 		
-							  <button type="submit" class="btn btn-primary" formaction="http://3.134.115.108:80/getemp">RESET</button><br><br>
+							  <button type="submit" class="btn btn-primary" stylt="text-align:center" formaction="http://3.134.115.108:80/getemp">RESET</button><br><br>
 						  </div>
 					</form>
 				</div>
