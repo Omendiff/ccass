@@ -52,6 +52,13 @@ def AddEmp():
         return "Please select a file"
 
     try:
+        
+        db_conn.commit()
+        emp_name = "" + first_name + " " + last_name
+        # Uplaod image file in S3 #
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        s3 = boto3.resource('s3')
+
         try:
             print("Data inserted in MySQL RDS... uploading image to S3...")
             s3.Bucket(custombucket).put_object(Key=emp_image_file_name_in_s3, Body=emp_image_file)
@@ -72,11 +79,6 @@ def AddEmp():
             return str(e)
 
         cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, object_url))
-        db_conn.commit()
-        emp_name = "" + first_name + " " + last_name
-        # Uplaod image file in S3 #
-        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-        s3 = boto3.resource('s3')
 
     finally:
         cursor.close()
