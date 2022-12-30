@@ -106,7 +106,7 @@ def getEmp():
      finally:
         cursor.close()
 
-     return render_template('getEmpOutput.html', result=result)
+     return render_template('GetEmpOutput.html', result=result)
 
 # Get Employee Done
 @app.route("/fetchdata/",methods=['GET','POST'])
