@@ -52,7 +52,11 @@ def AddEmp():
         return "Please select a file"
 
     try:
-         # Uplaod image file in S3 #
+
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
+        db_conn.commit()
+        emp_name = "" + first_name + " " + last_name
+        # Uplaod image file in S3 #
         emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
         s3 = boto3.resource('s3')
 
@@ -67,18 +71,13 @@ def AddEmp():
             else:
                 s3_location = '-' + s3_location
 
-            object_url = str("https://s3{0}.amazonaws.com/{1}/{2}".format(
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
                 s3_location,
                 custombucket,
-                emp_image_file_name_in_s3))
+                emp_image_file_name_in_s3)
 
         except Exception as e:
             return str(e)
-
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, object_url))
-        db_conn.commit()
-        emp_name = "" + first_name + " " + last_name
-       
 
     finally:
         cursor.close()
@@ -132,6 +131,7 @@ def getEmp():
             return str(e)
 
      return render_template('GetEmpOutput.html', result=result, image_url=object_url)
+
 
 # Get Employee Done
 @app.route("/fetchdata/",methods=['GET','POST'])
