@@ -19,27 +19,29 @@
   font-size: large;
   background-color: #e1eedd;
 }
+
+.btn1{
+  border: none;
+  background: none;
+  width: 33.33%;
+}
+
+.btn1:hover{
+  cursor: pointer;
+  color: gray;
+}
 </style>
 
 <head>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<title>Add Employee Information</title>
   <p style="background-color: #fefbe9; color: #183a1d; text-align: center; font-size: 3em; font-family: 'SaolDisplay', san-serif;">EMPLOYEE DATABASE</p>
-  <nav class="navbar navbar-expand-lg navbar-light">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav mx-auto">
-        <a class="nav-item nav-link active" href="/AddEmp">Add Employee<span class="sr-only">(current)</span></a>
-        <!-- <a class="nav-item nav-link" href="/about">About Us</a> -->
-        <!-- <a class="nav-item nav-link" href="/getemp">Get Employee</a> -->
-        <button type="submit" formaction="/about">About Us</button>
-        <button type="button" formaction="/getemp">GET EMPLOYEE INFORMATION</button>
-        <button type="submit" formaction="/fetchdata">fetch data</button>
-      </div>
-    </div>
-  </nav>
+  
+  <div class="navbar">
+    <button class="btn1" type="submit" formaction="/addemp">Add Employee</button>
+    <button class="btn1" type="submit" formaction="/about">About Us</button>
+    <button class="btn1" type="submit" formaction="/getemp">Get Employee</button>
+  </div>
 </head>
 	<body style="background-color: #fefbe9;">
   <br><p style="text-align: center; font-size: 2em; color: #183a1d; font-family: 'SaolDisplay', serif;">Add Employee</p>
@@ -47,10 +49,6 @@
   <div style="background-color: #e1eedd; color: #183a1d; width: 50%; margin: 10px auto; border-radius: 5px;">
     <div style="padding: 20px;">
 			<form action="/addemp" autocomplete="on" method = "POST" enctype="multipart/form-data">
-
-        <button type="submit" formaction="/about">About Us</button>
-        <button type="submit" formaction="/getemp">GET EMPLOYEE INFORMATION</button>
-        <button type="submit" formaction="/fetchdata">fetch data</button>
 
         <!-- <div style="text-align: center;">
           <button type="submit" formaction="/getemp" class="btn btn-dark" style="width: 80%;">GET EMPLOYEE INFORMATION</button><br><br>
