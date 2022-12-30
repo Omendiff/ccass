@@ -136,7 +136,6 @@ def getEmp():
 # Get Employee Done
 @app.route("/fetchdata/",methods=['GET','POST'])
 def getEmpDone():
-    
     return render_template('GetEmp.html')
 
 # update employee

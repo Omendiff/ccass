@@ -23,8 +23,10 @@
 							Primary Skills: {{ result[3] }} <br><br>
 		
 							Location: {{ result[4] }} <br><br>
-		
-							  <button type="submit" class="btn btn-primary" formaction="/getemp">GO BACK</button>
+
+							<form action="/fetchdata/" autocomplete="on" method="get">
+							  <button type="submit" class="btn btn-primary">GO BACK</button>
+							</form>
 
 							  <button type="submit" class="btn btn-danger" formaction="/">RESET</button><br><br>
 						  </div>
