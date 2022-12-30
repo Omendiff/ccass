@@ -29,6 +29,8 @@ def about():
     return render_template('About.html')
 
 
+
+
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
     emp_id = request.form['emp_id']
