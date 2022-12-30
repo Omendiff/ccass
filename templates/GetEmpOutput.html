@@ -24,9 +24,13 @@
 		
 							Location: {{ result[4] }} <br><br>
 
-							<button type="submit" class="btn btn-primary" formaction="/getemp/">GO BACK</button>
-							<button type="submit" class="btn btn-danger" formaction="/fetchdata/">GO BACK</button>
+							<form action="/getemp/" autocomplete="on" method="get">
+							  <button type="submit" class="btn btn-primary" formaction="/getemp/">GO BACK</button>
+							</form>
 							
+
+							  <button type="submit" class="btn btn-danger" formaction="/getemp/">RESET2</button><br><br>
+							  <button type="submit" class="btn btn-danger" formaction="/fetchdata/">RESET3</button><br><br>
 
 							  <button type="submit" class="btn btn-danger" formaction="/">RESET</button><br><br>
 						  </div>
