@@ -52,7 +52,8 @@ def AddEmp():
         return "Please select a file"
 
     try:
-        
+
+        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location))
         db_conn.commit()
         emp_name = "" + first_name + " " + last_name
         # Uplaod image file in S3 #
@@ -74,11 +75,11 @@ def AddEmp():
                 s3_location,
                 custombucket,
                 emp_image_file_name_in_s3)
+            
+            cursor.execute(insert_sql, (object_url))
 
         except Exception as e:
             return str(e)
-
-        cursor.execute(insert_sql, (emp_id, first_name, last_name, pri_skill, location, object_url))
 
     finally:
         cursor.close()
