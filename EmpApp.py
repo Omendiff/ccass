@@ -100,8 +100,8 @@ def getEmp():
         
      try:
          cursor.execute(select_stmt, { 'emp_id': int(emp_id) })
-         for result in cursor:
-            print(result)
+         for result2 in cursor:
+            print(result2)
 
      except Exception as e:
         return str(e)
@@ -130,7 +130,7 @@ def getEmp():
         except Exception as e:
             return str(e)
 
-     return render_template('GetEmpOutput.html', result=result, image_url=object_url)
+     return render_template('GetEmpOutput.html', result=result2, image_url=object_url)
 
 
 # Get Employee Done
