@@ -28,7 +28,7 @@ def home():
 
 @app.route("/about", methods=['POST'])
 def about():
-    return render_template('www.intellipaat.com')
+    return render_template('About.html')
 
 
 @app.route("/addemp", methods=['POST'])
@@ -80,6 +80,38 @@ def AddEmp():
     print("all modification done...")
     return render_template('AddEmpOutput.html', name=emp_name)
 
+# Add Employee Done
+@app.route("/addemp/",methods=['GET','POST'])
+def addEmpDone():
+    return render_template('AddEmp.html')
+
+# Get Employee Information
+@app.route("/fetchdata",methods=['GET','POST'])
+def getEmp():
+     emp_id = request.form['emp_id']
+
+     select_stmt = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
+     cursor = db_conn.cursor()
+        
+     try:
+         cursor.execute(select_stmt, { 'emp_id': int(emp_id) })
+         for result in cursor:
+            print(result)
+        
+
+     except Exception as e:
+        return str(e)
+        
+     finally:
+        cursor.close()
+
+     return render_template('getEmpOutput.html', result=result)
+
+# Get Employee Done
+@app.route("/fetchdata/",methods=['GET','POST'])
+def getEmpDone():
+    
+    return render_template('GetEmp.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
