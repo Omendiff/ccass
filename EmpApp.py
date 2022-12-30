@@ -28,8 +28,9 @@ def home():
 def about():
     return render_template('About.html')
 
-
-
+@app.route("/getemp/", methods=['GET', 'POST'])
+def about():
+    return render_template('GetEmp.html')
 
 @app.route("/addemp", methods=['POST'])
 def AddEmp():
