@@ -20,7 +20,6 @@ db_conn = connections.Connection(
 output = {}
 table = 'employee'
 
-
 @app.route("/", methods=['GET', 'POST'])
 def home():
     return render_template('AddEmp.html')
