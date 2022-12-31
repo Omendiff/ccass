@@ -282,7 +282,7 @@ def getEmp3():
 
 # Get Employee Information for update page from database page
 @app.route("/fetchdata3/<int:emp_id>",methods=['GET','POST'])
-def getEmp3(emp_id):
+def getEmp4(emp_id):
 
      select_stmt = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
      cursor = db_conn.cursor()
