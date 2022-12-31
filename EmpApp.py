@@ -194,6 +194,7 @@ def upemp2():
     if emp_image_file.filename == "":
         try:
             insert_sql = "UPDATE employee SET first_name= %s, last_name=%s, pri_skill=%s, location=%s where emp_id = %s"
+            emp_name = "" + first_name + " " + last_name
             cursor = db_conn.cursor()
             cursor.execute(insert_sql, (first_name, last_name, pri_skill, location, emp_id))
             db_conn.commit()
@@ -213,6 +214,7 @@ def upemp2():
             s3 = boto3.resource('s3')
 
             insert_sql = "UPDATE staff SET first_name=%s, last_name=%s, pri_skill=%s, location=%s WHERE emp_id = %(emp_id)s"
+            emp_name = "" + first_name + " " + last_name
             cursor = db_conn.cursor()
             cursor.execute(insert_sql, (first_name, last_name, pri_skill, location, emp_id))
             db_conn.commit()
@@ -232,9 +234,8 @@ def upemp2():
         
         finally:
             cursor.close()
-            
-    titleData = "Data Updated"
-    return render_template('UpEmpOutput.html',title=titleData)
+
+    return render_template('UpEmpOutput.html',name=emp_name)
 
 # Update Employee Done
 @app.route("/upemp",methods=['GET','POST'])
