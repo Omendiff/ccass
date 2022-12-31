@@ -16,38 +16,16 @@
 </head>
 	<body style="background-color: #fefbe9;">
   <!-- <div style="background-color: #e1eedd; color: #183a1d; width: 80%; margin: 10px auto; border-radius: 5px;"> -->
-  <!-- <div style="width: 80%; margin: 10px auto;">
-    <table id="tb1" class="table table-bordered table-hover" style="background-color: #e1eedd;">
-        <thead style="background-color: #183a1d; color: #fefbe9; text-align: center;">
-          <tr>
-            <th scope="col">Employee ID</th>
-            <th scope="col">First Name</th>
-            <th scope="col">Last Name</th>
-            <th scope="col">Primary Skills</th>
-            <th scope="col">Location</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{{ result[0] }}</td>
-            <td>{{ result[1] }}</td>
-            <td>{{ result[2] }}</td>
-            <td>{{ result[3] }}</td>
-            <td>{{ result[4] }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div> -->
 
 <!-- ---------------------------------------------------------------------------------------------------------------- -->
-<div class="table-responsive">
+<div class="table-responsive" style="width: 80%; margin: 10px auto;">
     <form action="/fetchdata3" autocomplete="on" method = "POST" enctype="multipart/form-data">
-    <table class="responsive nowrap" style="width:100%" id="staff_table" >
+    <table id="staff_table" class="table table-bordered table-hover responsive" style="background-color: #e1eedd;">
         <div>
             <input type="text" id="S_ID"  placeholder="Search Staff ID">
             <input type="text" id="S_Name"  placeholder="Search Name">
         </div>
-        <thead>
+        <thead style="background-color: #183a1d; color: #fefbe9; text-align: center;">
             <tr>
                 <th style="text-align:center;">Employee ID</th>
                 <th style="text-align:center;">First Name</th>
