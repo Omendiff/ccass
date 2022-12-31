@@ -273,37 +273,13 @@ def delEmpDone():
 # Display all employee data
 @app.route("/fetchdata3",methods=['GET','POST'])
 def getEmp3():
-     select_stmt = "SELECT * FROM employee"
-     cursor = db_conn.cursor()
-        
-     try:
-         cursor.execute(select_stmt)
-         result = cursor.fetchall
+    select_stmt = "SELECT * FROM employee"
+    cursor = db_conn.cursor()
+    cursor.execute(select_stmt)
+    data=cursor.fetchall()
+    cursor.close()
 
-         p = []
-
-         tbl = "<tr><th>Employee ID</th><th>First Name</th><th>Last Name</th><th>Primary Skills</th><th>Location</th></tr>"
-         p.append(tbl)
-
-         for row in result:
-            a = "<tr><td>%s</td>"%row[0]
-            p.append(a)
-            b = "<td>%s</td>"%row[1]
-            p.append(b)
-            c = "<td>%s</td>"%row[2]
-            p.append(c)
-            d = "<td>%s</td></tr>"%row[3]
-            p.append(d)
-        #  for result in cursor:
-        #      print(result)
-
-     except Exception as e:
-        return str(e)
-        
-     finally:
-        cursor.close()
-
-     return render_template('Data.html', p=p)
+    return render_template('Data.html', data=data)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
