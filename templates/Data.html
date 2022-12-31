@@ -5,6 +5,18 @@
 </style>
 
 <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script>
+    $(document).ready(function(){
+      $("#find_id").on("keyup", function() {
+        var value = $(this).val().toLowerCase();
+        $("#eid tr").filter(function() {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Staff List</title>
@@ -42,9 +54,9 @@
                 <th style="text-align:center;">Edit</th>
             </tr>
         </thead>
-        <tbody>
+        <tbody   id="eid">
             {% for row in result %}
-            <tr  id="eid">
+            <tr>
                 <td style='text-align:center;'>{{row.0}}</td>
                 <td style='text-align:center;'>{{row.1}}</td>
                 <td style='text-align:center;'>{{row.2}}</td>
@@ -63,12 +75,4 @@
 	</body>
 
 </html>
-<script>
-$(document).ready(function () {
-    $('#emp_table').DataTable({
-        paging: true,
-        ordering: true,
-        info: true,
-    });
-});
-</script>
+
