@@ -22,8 +22,7 @@
     <form action="/fetchdata3" autocomplete="on" method = "POST" enctype="multipart/form-data">
     <table id="emp_table" class="table table-bordered table-hover responsive" style="background-color: #e1eedd;">
         <div>
-            <input type="text" id="S_ID"  placeholder="Search Staff ID">
-            <input type="text" id="S_Name"  placeholder="Search Name">
+            <input type="text" id="find_id"  placeholder="Search Staff ID">
         </div>
         <thead style="background-color: #183a1d; color: #fefbe9; text-align: center;">
             <tr>
@@ -37,7 +36,7 @@
         </thead>
         <tbody>
             {% for row in result %}
-            <tr>
+            <tr  id="eid">
                 <td style='text-align:center;'>{{row.0}}</td>
                 <td style='text-align:center;'>{{row.1}}</td>
                 <td style='text-align:center;'>{{row.2}}</td>
@@ -68,37 +67,48 @@
 
 </html>
 <script>
-    $(document).ready( function () {
-      //Link DataTable
-      var table =  $('#emp_table').DataTable({
-        "showNEntries":true,
-        "order":[],
-        "columnDefs":[
-          {
-            "targets":[7], 
-            "orderable":false,
-          },
-        ],
-        language: {
-          search: "_INPUT_",
-          searchPlaceholder: "Search records"
-        }
-      });
+    // $(document).ready( function () {
+    //   //Link DataTable
+    //   var table =  $('#emp_table').DataTable({
+    //     "showNEntries":true,
+    //     "order":[],
+    //     language: {
+    //       search: "_INPUT_",
+    //       searchPlaceholder: "Search records"
+    //     }
+    //   });
     
-    $('#emp_id').on('keyup',function(){
-      table
-      .column(0)
-      .search(this.value)
-      .draw();
-    })
-    
-    // //DataTable Search
-    // $('#S_Name').on('keyup',function(){
+    // $('#emp_id').on('keyup',function(){
     //   table
-    //   .column(1)
+    //   .column(0)
     //   .search(this.value)
     //   .draw();
     // })
-    });
+    
+    // // //DataTable Search
+    // // $('#S_Name').on('keyup',function(){
+    // //   table
+    // //   .column(1)
+    // //   .search(this.value)
+    // //   .draw();
+    // // })
+    // });
+
+    function myFunction() {
+    var input, filter, tr, td, a, i, txtValue;
+    input = document.getElementById("find_id");
+    filter = input.value.toUpperCase();
+    tr = document.getElementById("eid");
+    td = td.getElementsByTagName("td");
+    for (i = 0; i < td.length; i++) {
+        a = td[i].getElementsByTagName("a")[0];
+        txtValue = a.textContent || a.innerText;
+        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+            td[i].style.display = "";
+        } else {
+            td[i].style.display = "none";
+        }
+    }
+}
     
     </script>
