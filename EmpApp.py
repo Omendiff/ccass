@@ -183,13 +183,13 @@ def getEmpDone():
 # update employee
 @app.route("/upemp2", methods=['POST'])
 def upemp2():
-    first_name = request.form['first_name']
-    emp_id = request.form['emp_id']
     
+    first_name = request.form['first_name']
     last_name = request.form['last_name']
     pri_skill = request.form['pri_skill']
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
+    emp_id = request.form['emp_id']
 
     #if no image uploaded
     if emp_image_file.filename == "":
