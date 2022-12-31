@@ -270,5 +270,24 @@ def delemp():
 def delEmpDone():
     return render_template('GetEmp.html')
 
+# Display all employee data
+@app.route("/fetchdata3",methods=['GET','POST'])
+def getEmp3():
+     select_stmt = "SELECT * FROM employee"
+     cursor = db_conn.cursor()
+        
+     try:
+         cursor.execute(select_stmt)
+         for result in cursor:
+            print(result)
+
+     except Exception as e:
+        return str(e)
+        
+     finally:
+        cursor.close()
+
+     return render_template('data.html', result=result)
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
