@@ -244,12 +244,13 @@ def upEmpDone():
 # Delte Employee
 @app.route("/delemp", methods=['GET','POST'])
 def delemp():
-    emp_id = request.form['emp_id']
+    
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     pri_skill = request.form['pri_skill']
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
+    emp_id = request.form['emp_id']
 
     insert_sql = "DELETE FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
