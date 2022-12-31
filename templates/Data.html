@@ -54,7 +54,6 @@
                 <th style="text-align:center;">Primary Skills</th>
                 <th style="text-align:center;">Location</th>
                 <th style="text-align:center;">Edit</th>
-                <th style="text-align:center;">Delete</th>
             </tr>
         </thead>
         <tbody>
@@ -65,8 +64,7 @@
                 <td style='text-align:center;'>{{row.2}}</td>
                 <td style='text-align:center;'>{{row.3}}</td>
                 <td style='text-align:center;'>{{row.4}}</td>
-                <td style='text-align:center;'><button formaction="/fetchdata2" class="btn btn-primary btn-xs editFunction">Edit</button></td>
-                <td style='text-align:center;'><button formaction="/delemp2/{{row.0}}" class="btn btn-danger btn-xs">Delete</button></td>
+                <td style='text-align:center;'><button formaction="/fetchdata3/{{row.0}}" class="btn btn-primary btn-xs editFunction">Edit</button></td>
             </tr>
             {% endfor %}
         </tbody>
@@ -85,22 +83,6 @@
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-    <script>
-    function addrow() {
-        var tbodyRef = document.getElementById('myTable').getElementsByTagName('tbody')[0];
-        var row = tbodyRef.insertRow();
-        var cell1 = row.insertCell(0);
-        var cell2 = row.insertCell(1);
-        var cell3 = row.insertCell(2);
-        var cell4 = row.insertCell(3);
-        var cell5 = row.insertCell(4);
-        cell1.innerHTML = "{{ result[0] }}";
-        cell2.innerHTML = "{{ result[1] }}";
-        cell3.innerHTML = "{{ result[2] }}";
-        cell4.innerHTML = "{{ result[3] }}";
-        cell5.innerHTML = "{{ result[4] }}";
-    }
-    </script>
 
 	</body>
 
@@ -141,26 +123,4 @@
     })
     });
     
-    //add employee
-    $(document).ready(function(){  
-          $(document).on('click', '.editFunction', function(){  
-                var getEmpID = $(this).data("id1");
-                var getFName = $(this).data("id2");
-                var getLName = $(this).data("id3");
-                var getPSkill = $(this).data("id4");
-                var getLocation = $(this).data("id8");
-                
-                $('#getFName').val(getFName); 
-                $('#getLName').val(getLName); 
-                $('#getPSkill').val(getPSkill);  
-                $('#getLocation').val(getLocation);
-                $('#getEmpID').val(getEmpID);
-          });  
-    
-        $(document).on('click', '#ZoomImage', function(){
-            var Image = $(this).attr('src');
-          $('#ShowImage').attr("src",Image);
-        });
-        
-    });
     </script>

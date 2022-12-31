@@ -174,7 +174,6 @@ def getEmp2():
 
      return render_template('UpEmp.html', result=result, image_url=object_url)
 
-
 # Get Employee Done
 @app.route("/fetchdata/",methods=['GET','POST'])
 def getEmpDone():
@@ -265,28 +264,6 @@ def delemp():
     print("all modification done...")
     return render_template('DelEmpOutput.html', emp_id=emp_id)
 
-# Delete Employee 2
-@app.route("/delemp2/<string:emp_id>", methods=['POST'])
-def delemp2(emp_id):
-    delete_sql = "DELETE FROM employee WHERE emp_id=%s"
-    cursor = db_conn.cursor()
-
-    try:
-        cursor.execute(delete_sql, (emp_id))
-        db_conn.commit()
-        # delete image file in S3 #
-        s3_client = boto3.client("s3")
-        image_file_name = "emp-id-" + str(emp_id) + "_image_file"
-
-        response = s3_client.delete_object(Bucket=custombucket, Key=image_file_name)
-        print(response)
-
-    finally:
-        cursor.close()
-    
-    print("all modification done...")
-    return render_template('DelEmpOutput.html', emp_id=emp_id)
-
 # Delete Employee Done
 @app.route("/delemp/",methods=['GET','POST'])
 def delEmpDone():
@@ -302,6 +279,47 @@ def getEmp3():
     cursor.close()
 
     return render_template('Data.html', result=result)
+
+# Get Employee Information for update page from database page
+@app.route("/fetchdata3/<int:emp_id>",methods=['GET','POST'])
+def getEmp3(emp_id):
+
+     select_stmt = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
+     cursor = db_conn.cursor()
+        
+     try:
+         cursor.execute(select_stmt, { 'emp_id': int(emp_id) })
+         for result in cursor:
+            print(result)
+
+     except Exception as e:
+        return str(e)
+        
+     finally:
+        cursor.close()
+
+        emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
+        s3 = boto3.resource('s3')
+
+        try:
+            print("Data inserted in MySQL RDS... uploading image to S3...")
+            bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
+            s3_location = (bucket_location['LocationConstraint'])
+
+            if s3_location is None:
+                s3_location = ''
+            else:
+                s3_location = '-' + s3_location
+
+            object_url = "https://s3{0}.amazonaws.com/{1}/{2}".format(
+                s3_location,
+                custombucket,
+                emp_image_file_name_in_s3)
+
+        except Exception as e:
+            return str(e)
+
+     return render_template('UpEmp.html', result=result, image_url=object_url)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
