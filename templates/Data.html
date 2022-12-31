@@ -51,7 +51,6 @@
                 <th style="text-align:center;">Employee ID</th>
                 <th style="text-align:center;">First Name</th>
                 <th style="text-align:center;">Last Name</th>
-                <th style="text-align:center;">Image</th>
                 <th style="text-align:center;">Primary Skills</th>
                 <th style="text-align:center;">Location</th>
                 <th style="text-align:center;">Edit</th>
@@ -59,12 +58,11 @@
             </tr>
         </thead>
         <tbody>
-            {% for row in data %}
+            {% for row in result %}
             <tr>
                 <td style='text-align:center;'>{{row.0}}</td>
                 <td style='text-align:center;'>{{row.1}}</td>
                 <td style='text-align:center;'>{{row.2}}</td>
-                <td style='text-align:center;'><img src='{{row.8}}' alt='No Image' style='width:100px;height:100px' data-toggle='modal' data-target='#imagemodal' id='ZoomImage'></td>
                 <td style='text-align:center;'>{{row.3}}</td>
                 <td style='text-align:center;'>{{row.4}}</td>
                 <td style='text-align:center;'><button formaction="/fetchdata2" class="btn btn-primary btn-xs editFunction">Edit</button></td>

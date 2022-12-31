@@ -276,10 +276,10 @@ def getEmp3():
     select_stmt = "SELECT * FROM employee"
     cursor = db_conn.cursor()
     cursor.execute(select_stmt)
-    data=cursor.fetchall()
+    result=cursor.fetchall()
     cursor.close()
 
-    return render_template('Data.html', data=data)
+    return render_template('Data.html', result=result)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
