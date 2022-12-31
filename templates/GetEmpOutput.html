@@ -9,12 +9,28 @@
 	<p style="text-align: center; font-size: 2em; color: #183a1d; font-family: 'SaolDisplay', serif;">Employee Information</p>
 		<div class="h-100 d-flex align-items-center justify-content-center">
 			<div style="background-color: #e1eedd; color: #183a1d; width: 50%; margin: 10px auto; border-radius: 5px; font-size: larger;">
-				<div style="padding: 20px">
+				<div style="padding: 20px;">
 					<form action="/fetchdata" autocomplete="on" method="POST">
 						<div>
 							<img src=" {{ image_url }} " style="width: 250px; text-align: center; border-radius: 50%;"> <br><br>
 
-							Employee ID: <p name="emp_id">{{ emp_id }}</p>{{ emp_id }} <br><br>
+							<div style="padding: 0 50px; text-align: left;">
+							<label for="emp1" class="t2t">Employee ID</label>
+							<input id="emp1" class="input66" type="number" name="emp_id" value="{{ result[0] }}" readonly="readonly"><br><br>
+			
+							<label for="emp2" class="t2t">First Name</label>
+						  	<input id="emp2" class="input66" type="text" name="first_name" value="{{ result[1] }}" readonly="readonly"><br><br>
+			
+							<label for="emp3" class="t2t">Last Name</label>
+						  	<input id="emp3" class="input66" type="text" name="last_name" value="{{ result[2] }}" readonly="readonly"><br><br>
+			
+							<label for="emp4" class="t2t">Primary Skills</label>
+						  	<input id="emp4" class="input66" type="text" name="pri_skill" value="{{ result[3] }}" readonly="readonly"><br><br>
+			
+							<label for="emp5" class="t2t">Location</label>
+						  	<input id="emp5" class="input66" type="text" name="location" value="{{ result[4] }}" readonly="readonly"><br><br>
+							</div>
+							<!-- Employee ID: <p name="emp_id">{{ emp_id }}</p>{{ emp_id }} <br><br>
 		
 							First Name: {{ result[1] }} <br><br>
 		
@@ -22,7 +38,7 @@
 		
 							Primary Skills: {{ result[3] }} <br><br>
 		
-							Location: {{ result[4] }} <br><br>						
+							Location: {{ result[4] }} <br><br>						 -->
 
 							  <button type="submit" class="btn btn-primary" formaction="/getemp/">Go back</button>
 
