@@ -3,6 +3,7 @@ from pymysql import connections
 import os
 import boto3
 from config import *
+import pandas as pd
 
 app = Flask(__name__)
 
@@ -277,9 +278,12 @@ def getEmp3():
      cursor = db_conn.cursor()
         
      try:
-         cursor.execute(select_stmt)
-         for result in cursor:
-            print(result)
+         result = cursor.execute(select_stmt)
+         df = pd.DataFrame(result)
+         print(df)
+
+        #  for result in cursor:
+        #     print(result)
 
      except Exception as e:
         return str(e)
@@ -287,7 +291,7 @@ def getEmp3():
      finally:
         cursor.close()
 
-     return render_template('Data.html', result=result)
+     return render_template('Data.html', result=df)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
