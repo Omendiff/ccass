@@ -181,7 +181,7 @@ def getEmpDone():
     return render_template('GetEmp.html')
 
 # update employee
-@app.route("/upemp", methods=['POST'])
+@app.route("/upemp2", methods=['POST'])
 def upemp2():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
