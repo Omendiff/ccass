@@ -183,13 +183,12 @@ def getEmpDone():
 # update employee
 @app.route("/upemp2", methods=['POST'])
 def upemp2():
-    
+    emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
     pri_skill = request.form['pri_skill']
     location = request.form['location']
     emp_image_file = request.files['emp_image_file']
-    emp_id = request.form['emp_id']
 
     #if no image uploaded
     if emp_image_file.filename == "":
@@ -245,7 +244,7 @@ def upEmpDone():
 # Delte Employee
 @app.route("/delemp", methods=['POST'])
 def delemp():
-    emp_id = request.form['emp_id'] #--> emp_id got error
+    emp_id = request.form['emp_id']
 
     insert_sql = "DELETE FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
@@ -258,7 +257,7 @@ def delemp():
         s3 = boto3.resource('s3')
 
         try:
-            print("Data inserted in MySQL RDS... removing image to S3...")
+            print("Data removed in MySQL RDS... removing image to S3...")
             s3.Bucket(custombucket).delete_object(Key=emp_image_file_name_in_s3)
             bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
             s3_location = (bucket_location['LocationConstraint'])
