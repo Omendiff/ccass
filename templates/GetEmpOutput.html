@@ -1,5 +1,23 @@
 <!DOCTYPE html>
 <html>
+<style>
+td{
+	height: 70px;
+}
+.input66{
+  width: 100%;
+  padding: 5px;
+  margin: 5px 0px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid;
+}
+
+.t2t{
+  text-align: left;
+  margin: 0px 5px;
+}
+</style>
 <head>
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 	<title>Employee Information</title>
@@ -14,31 +32,30 @@
 						<div>
 							<img src=" {{ image_url }} " style="width: 250px; text-align: center; border-radius: 50%;"> <br><br>
 
-							<div style="padding: 0 50px; text-align: left;">
-							<label for="emp1" class="t2t">Employee ID</label>
-							<input id="emp1" class="input66" type="number" name="emp_id" value="{{ result[0] }}" readonly="readonly"><br><br>
-			
-							<label for="emp2" class="t2t">First Name</label>
-						  	<input id="emp2" class="input66" type="text" name="first_name" value="{{ result[1] }}" readonly="readonly"><br><br>
-			
-							<label for="emp3" class="t2t">Last Name</label>
-						  	<input id="emp3" class="input66" type="text" name="last_name" value="{{ result[2] }}" readonly="readonly"><br><br>
-			
-							<label for="emp4" class="t2t">Primary Skills</label>
-						  	<input id="emp4" class="input66" type="text" name="pri_skill" value="{{ result[3] }}" readonly="readonly"><br><br>
-			
-							<label for="emp5" class="t2t">Location</label>
-						  	<input id="emp5" class="input66" type="text" name="location" value="{{ result[4] }}" readonly="readonly"><br><br>
-							</div>
-							<!-- Employee ID: <p name="emp_id">{{ emp_id }}</p>{{ emp_id }} <br><br>
-		
-							First Name: {{ result[1] }} <br><br>
-		
-							Last Name: {{ result[2] }} <br><br>
-		
-							Primary Skills: {{ result[3] }} <br><br>
-		
-							Location: {{ result[4] }} <br><br>						 -->
+							<table style="width: 55%; text-align: left; margin: auto; border: none;">
+								<tbody>
+								  <tr>
+									<td><label for="emp1" class="t2t">Employee ID</label></td>
+									<td><input id="emp1" class="input66" type="number" name="emp_id" value="{{ result[0] }}" readonly="readonly"></td>
+								  </tr>
+								  <tr>
+									<td><label for="emp2" class="t2t">First Name</label></td>
+									<td><input id="emp2" class="input66" type="text" name="first_name" value="{{ result[1] }}" readonly="readonly"></td>
+								  </tr>
+								  <tr>
+									<td><label for="emp3" class="t2t">Last Name</label></td>
+									<td><input id="emp3" class="input66" type="text" name="last_name" value="{{ result[2] }}" readonly="readonly"></td>
+								  </tr>
+								  <tr>
+									<td><label for="emp4" class="t2t">Primary Skills</label></td>
+									<td><input id="emp4" class="input66" type="text" name="pri_skill" value="{{ result[3] }}" readonly="readonly"></td>
+								  </tr>
+								  <tr>
+									<td><label for="emp5" class="t2t">Location</label></td>
+									<td><input id="emp5" class="input66" type="text" name="location" value="{{ result[4] }}" readonly="readonly"></td>
+								  </tr>
+								</tbody>
+							  </table>
 
 							  <button type="submit" class="btn btn-primary" formaction="/getemp/">Go back</button>
 
