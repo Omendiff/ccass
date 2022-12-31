@@ -237,8 +237,8 @@ def upemp2():
     return render_template('StaffOutput.html',title=titleData)
 
 # Update Employee Done
-@app.route("/upemp/",methods=['GET','POST'])
-def getEmpDone():
+@app.route("/upemp",methods=['GET','POST'])
+def upEmpDone():
     return render_template('GetEmp.html')
 
 # Delte Employee
