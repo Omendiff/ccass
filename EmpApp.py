@@ -287,7 +287,7 @@ def getEmp3():
      finally:
         cursor.close()
 
-     return render_template('data.html', result=result)
+     return render_template('Data.html', result=result)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
