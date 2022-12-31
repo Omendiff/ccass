@@ -239,7 +239,7 @@ def getEmpDone():
 # Delte Employee
 @app.route("/delemp", methods=['POST'])
 def delemp():
-    emp_id = request.form['emp_id']
+    emp_id = request.form['result[0]']
 
     insert_sql = "DELETE FROM employee WHERE emp_id = %s"
     cursor = db_conn.cursor()
