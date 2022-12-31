@@ -130,12 +130,12 @@ def getEmp():
         except Exception as e:
             return str(e)
 
-     return render_template('GetEmpOutput.html', result=result, image_url=object_url)
+     return render_template('GetEmpOutput.html', result=result, image_url=object_url, emp_id=emp_id)
 
 # Get Employee Information for update page
 @app.route("/fetchdata2",methods=['GET','POST'])
 def getEmp2():
-     emp_id = request.form['result[0]']
+     emp_id = request.form['emp_id']
 
      select_stmt = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
      cursor = db_conn.cursor()
