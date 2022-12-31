@@ -241,7 +241,7 @@ def upemp2():
 def upEmpDone():
     return render_template('GetEmp.html')
 
-# Delte Employee
+# Delete Employee
 @app.route("/delemp", methods=['POST'])
 def delemp():
     emp_id = request.form['emp_id']
@@ -264,38 +264,10 @@ def delemp():
     print("all modification done...")
     return render_template('DelEmpOutput.html', emp_id=emp_id)
 
-
-    
-
-    # insert_sql = "DELETE FROM employee WHERE emp_id = %s"
-    # cursor = db_conn.cursor()
-
-    # try:
-    #     cursor.execute(insert_sql, (emp_id))
-    #     db_conn.commit()
-    #     # delete image file in S3 #
-    #     emp_image_file_name_in_s3 = "emp-id-" + str(emp_id) + "_image_file"
-    #     s3 = boto3.resource('s3')
-
-    #     try:
-    #         print("Data removed in MySQL RDS... removing image to S3...")
-    #         s3.Bucket(custombucket).delete_object(Key=emp_image_file_name_in_s3)
-    #         bucket_location = boto3.client('s3').get_bucket_location(Bucket=custombucket)
-    #         s3_location = (bucket_location['LocationConstraint'])
-
-    #         if s3_location is None:
-    #             s3_location = ''
-    #         else:
-    #             s3_location = '-' + s3_location
-
-    #     except Exception as e:
-    #         return str(e)
-
-    # finally:
-    #     cursor.close()
-
-    # print("all modification done...")
-    # return render_template('DelEmpOutput.html', emp_id=emp_id)
+# Delete Employee Done
+@app.route("/delemp/",methods=['GET','POST'])
+def delEmpDone():
+    return render_template('GetEmp.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=80, debug=True)
