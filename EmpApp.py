@@ -135,7 +135,7 @@ def getEmp():
 # Get Employee Information for update page
 @app.route("/fetchdata2",methods=['GET','POST'])
 def getEmp2():
-     emp_id = request.form['result[0]']
+     emp_id = request.form['emp_id']
 
      select_stmt = "SELECT * FROM employee WHERE emp_id = %(emp_id)s"
      cursor = db_conn.cursor()
