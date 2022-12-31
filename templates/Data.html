@@ -20,7 +20,7 @@
 <!-- ---------------------------------------------------------------------------------------------------------------- -->
 <div class="table-responsive" style="width: 80%; margin: 10px auto;">
     <form action="/fetchdata3" autocomplete="on" method = "POST" enctype="multipart/form-data">
-    <table id="staff_table" class="table table-bordered table-hover responsive" style="background-color: #e1eedd;">
+    <table id="emp_table" class="table table-bordered table-hover responsive" style="background-color: #e1eedd;">
         <div>
             <input type="text" id="S_ID"  placeholder="Search Staff ID">
             <input type="text" id="S_Name"  placeholder="Search Name">
@@ -70,15 +70,13 @@
 <script>
     $(document).ready( function () {
       //Link DataTable
-      var table =  $('#staff_table').DataTable({
+      var table =  $('#emp_table').DataTable({
         "showNEntries":true,
         "order":[],
         "columnDefs":[
           {
-            "targets":[7],
+            "targets":[7], 
             "orderable":false,
-    
-    
           },
         ],
         language: {
@@ -87,20 +85,20 @@
         }
       });
     
-    $('#S_ID').on('keyup',function(){
+    $('#emp_id').on('keyup',function(){
       table
       .column(0)
       .search(this.value)
       .draw();
     })
     
-    //DataTable Search
-    $('#S_Name').on('keyup',function(){
-      table
-      .column(1)
-      .search(this.value)
-      .draw();
-    })
+    // //DataTable Search
+    // $('#S_Name').on('keyup',function(){
+    //   table
+    //   .column(1)
+    //   .search(this.value)
+    //   .draw();
+    // })
     });
     
     </script>
