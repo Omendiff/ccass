@@ -242,14 +242,8 @@ def upEmpDone():
     return render_template('GetEmp.html')
 
 # Delte Employee
-@app.route("/delemp", methods=['GET','POST'])
+@app.route("/delemp", methods=['POST'])
 def delemp():
-    
-    first_name = request.form['first_name']
-    last_name = request.form['last_name']
-    pri_skill = request.form['pri_skill']
-    location = request.form['location']
-    emp_image_file = request.files['emp_image_file']
     emp_id = request.form['emp_id']
 
     insert_sql = "DELETE FROM employee WHERE emp_id = %s"
