@@ -242,7 +242,7 @@ def upEmpDone():
     return render_template('GetEmp.html')
 
 # Delte Employee
-@app.route("/delemp", methods=['POST'])
+@app.route("/delemp", methods=['GET','POST'])
 def delemp():
     emp_id = request.form['emp_id']
 
