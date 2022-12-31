@@ -265,6 +265,28 @@ def delemp():
     print("all modification done...")
     return render_template('DelEmpOutput.html', emp_id=emp_id)
 
+# Delete Employee 2
+@app.route("/delemp/<string:emp_id>", methods=['POST'])
+def delemp(emp_id):
+    delete_sql = "DELETE FROM employee WHERE emp_id=%s"
+    cursor = db_conn.cursor()
+
+    try:
+        cursor.execute(delete_sql, (emp_id))
+        db_conn.commit()
+        # delete image file in S3 #
+        s3_client = boto3.client("s3")
+        image_file_name = "emp-id-" + str(emp_id) + "_image_file"
+
+        response = s3_client.delete_object(Bucket=custombucket, Key=image_file_name)
+        print(response)
+
+    finally:
+        cursor.close()
+    
+    print("all modification done...")
+    return render_template('DelEmpOutput.html', emp_id=emp_id)
+
 # Delete Employee Done
 @app.route("/delemp/",methods=['GET','POST'])
 def delEmpDone():

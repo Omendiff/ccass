@@ -66,7 +66,7 @@
                 <td style='text-align:center;'>{{row.3}}</td>
                 <td style='text-align:center;'>{{row.4}}</td>
                 <td style='text-align:center;'><button formaction="/fetchdata2" class="btn btn-primary btn-xs editFunction">Edit</button></td>
-                <td style='text-align:center;'><button formaction="/delemp" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')">Delete</button></td>
+                <td style='text-align:center;'><button formaction="/delemp/{{row.0}}" class="btn btn-danger btn-xs" onclick="return confirm('Are You Sure For Delete?')">Delete</button></td>
             </tr>
             {% endfor %}
         </tbody>
