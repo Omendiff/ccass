@@ -182,7 +182,7 @@ def getEmpDone():
 
 # update employee
 @app.route("/upemp", methods=['POST'])
-def upemp():
+def upemp2():
     emp_id = request.form['emp_id']
     first_name = request.form['first_name']
     last_name = request.form['last_name']
