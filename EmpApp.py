@@ -235,7 +235,7 @@ def upemp2():
             cursor.close()
             
     titleData = "Data Updated"
-    return render_template('StaffOutput.html',title=titleData)
+    return render_template('UpEmpOutput.html',title=titleData)
 
 # Update Employee Done
 @app.route("/upemp",methods=['GET','POST'])
