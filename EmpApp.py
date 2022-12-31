@@ -266,8 +266,8 @@ def delemp():
     return render_template('DelEmpOutput.html', emp_id=emp_id)
 
 # Delete Employee 2
-@app.route("/delemp/<string:emp_id>", methods=['POST'])
-def delemp(emp_id):
+@app.route("/delemp2/<string:emp_id>", methods=['POST'])
+def delemp2(emp_id):
     delete_sql = "DELETE FROM employee WHERE emp_id=%s"
     cursor = db_conn.cursor()
 
